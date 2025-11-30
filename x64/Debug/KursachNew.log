@@ -1,0 +1,5 @@
+﻿   Qt/MSBuild: 3.4.1.0
+  Reading Qt configuration (C:/Qt/6.9.3/msvc2022_64/bin/qmake)
+   Qt: 6.9.3
+  LINK : не найден или не выполнена сборка C:\Kursach\KursachNew\x64\Debug\KursachNew.exe при последней инкрементной компоновке; выполняется полная компоновка
+  KursachNew.vcxproj -> C:\Kursach\KursachNew\x64\Debug\KursachNew.exe
