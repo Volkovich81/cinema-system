@@ -1,40 +1,5 @@
-# Build outputs
 x64/
 Debug/
 Release/
-build/
-out/
-bin/
-lib/
-
-# Qt
-moc_*
-qrc_*
-ui_*
-*.qm
-*.qrc.d
-
-# Visual Studio
 .vs/
-VC/
-*.vcxproj*
-*.sln
-*.sdf
-*.suo
 *.user
-ipch/
-*.aps
-*.ncb
-*.opendb
-*.tlog
-
-# CMake
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-Makefile
-*.cmake
-
-# OS
-.DS_Store
-Thumbs.db
