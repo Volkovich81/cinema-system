@@ -1,7 +1,15 @@
+# Build outputs
 x64/
+Debug/
+Release/
+# Visual Studio
 .vs/
-*.user
 *.vcxproj*
 *.sln
+*.user
+*.filters
+# Qt project files
 *.qrc
 *.ui
+# Git backups
+*.backup
