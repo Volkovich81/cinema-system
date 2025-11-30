@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Источники">
+      <UniqueIdentifier>{12345678-1234-1234-1234-123456789013}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовки">
+      <UniqueIdentifier>{12345678-1234-1234-1234-123456789014}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sources\*.cpp">
+      <Filter>Источники</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\*.h">
+      <Filter>Заголовки</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
