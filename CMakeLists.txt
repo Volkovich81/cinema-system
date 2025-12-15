@@ -1,13 +1,7 @@
-# Перейдите в текущую папку
-cd /C/Kursach/KursachNew/KursachNew/KursachNew
+# Удалите старый файл (если есть)
+rm CMakeLists.txt
 
-# Переместите CMakeLists.txt на уровень выше
-mv CMakeLists.txt ..
-
-# Перейдите туда
-cd ..
-
-# Теперь создайте CMakeLists.txt с простыми путями:
+# Создайте новый с правильным синтаксисом
 cat > CMakeLists.txt << 'EOF'
 cmake_minimum_required(VERSION 3.10)
 project(KursachNew)
