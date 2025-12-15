@@ -1,15 +1,22 @@
-# Build outputs
-x64/
-Debug/
-Release/
-# Visual Studio
-.vs/
-*.vcxproj*
-*.sln
-*.user
-*.filters
-# Qt project files
-*.qrc
-*.ui
-# Git backups
-*.backup
+# Compiled files
+*.o
+*.exe
+*.so
+*.dylib
+
+# Qt
+*.pro.user
+*.autosave
+
+# Build directories
+build/
+bin/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

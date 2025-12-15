@@ -1,0 +1,32 @@
+name: SonarCloud Analysis
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        
+    - name: Install Qt and CMake
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools cmake build-essential libgl1-mesa-dev libglu1-mesa-dev
+        
+    - name: Build with CMake
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+        
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
