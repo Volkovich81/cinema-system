@@ -10,7 +10,11 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
-include_directories(headers)
+# ДВА варианта пути на всякий случай
+include_directories(KursachNew/headers)
+include_directories(${CMAKE_SOURCE_DIR}/KursachNew/headers)
+# И флаг компилятору
+add_compile_options(-I${CMAKE_SOURCE_DIR}/KursachNew/headers)
 
 add_executable(KursachNew
     KursachNew/sources/main.cpp
