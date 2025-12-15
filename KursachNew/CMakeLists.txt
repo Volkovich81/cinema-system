@@ -10,8 +10,10 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
+# Заголовки прямо здесь
 include_directories(headers)
 
+# Все файлы здесь же
 add_executable(KursachNew
     sources/main.cpp
     sources/MainWindow.cpp
