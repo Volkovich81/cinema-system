@@ -12,7 +12,7 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
 # Указываем путь к заголовочным файлам
-include_directories(../headers)
+include_directories(${CMAKE_SOURCE_DIR}/headers)
 
 # Перечисляем ВСЕ исходные файлы с правильными путями
 add_executable(cinema_system
