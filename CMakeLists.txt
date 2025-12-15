@@ -10,7 +10,7 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
-include_directories(${CMAKE_SOURCE_DIR}/KursachNew/headers)
+include_directories(headers)
 
 add_executable(KursachNew
     KursachNew/sources/main.cpp
