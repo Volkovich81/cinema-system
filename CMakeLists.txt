@@ -1,8 +1,3 @@
-# Удалите старый файл (если есть)
-rm CMakeLists.txt
-
-# Создайте новый с правильным синтаксисом
-cat > CMakeLists.txt << 'EOF'
 cmake_minimum_required(VERSION 3.10)
 project(KursachNew)
 
@@ -15,29 +10,28 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
-include_directories(headers)
+include_directories(KursachNew/headers)
 
 add_executable(KursachNew
-    sources/main.cpp
-    sources/MainWindow.cpp
-    sources/CinemaSystem.cpp
-    sources/Movie.cpp
-    sources/CinemaHall.cpp
-    sources/Session.cpp
-    sources/Customer.cpp
-    sources/Person.cpp
-    sources/Ticket.cpp
-    sources/Booking.cpp
-    sources/BookingDialog.cpp
-    sources/SessionDialog.cpp
-    sources/HallDialog.cpp
-    sources/MovieDialog.cpp
-    sources/HallMapDialog.cpp
-    sources/MovieService.cpp
-    sources/SessionService.cpp
-    sources/BookingService.cpp
-    sources/CustomerService.cpp
+    KursachNew/sources/main.cpp
+    KursachNew/sources/MainWindow.cpp
+    KursachNew/sources/CinemaSystem.cpp
+    KursachNew/sources/Movie.cpp
+    KursachNew/sources/CinemaHall.cpp
+    KursachNew/sources/Session.cpp
+    KursachNew/sources/Customer.cpp
+    KursachNew/sources/Person.cpp
+    KursachNew/sources/Ticket.cpp
+    KursachNew/sources/Booking.cpp
+    KursachNew/sources/BookingDialog.cpp
+    KursachNew/sources/SessionDialog.cpp
+    KursachNew/sources/HallDialog.cpp
+    KursachNew/sources/MovieDialog.cpp
+    KursachNew/sources/HallMapDialog.cpp
+    KursachNew/sources/MovieService.cpp
+    KursachNew/sources/SessionService.cpp
+    KursachNew/sources/BookingService.cpp
+    KursachNew/sources/CustomerService.cpp
 )
 
 target_link_libraries(KursachNew Qt5::Widgets)
-EOF
