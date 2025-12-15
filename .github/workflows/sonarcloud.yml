@@ -16,7 +16,7 @@ jobs:
     - name: Install Qt and CMake
       run: |
         sudo apt-get update
-        sudo apt-get install -y qt5-default cmake
+        sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools cmake build-essential libgl1-mesa-dev libglu1-mesa-dev
         
     - name: Build with CMake
       run: |
