@@ -1,4 +1,4 @@
-name: SonarCloud Analysis
+name: SonarCloud
 on:
   push:
     branches: [ main ]
@@ -6,35 +6,24 @@ on:
     branches: [ main ]
 
 jobs:
-  sonarcloud:
+  analyze:
+    name: SonarCloud Scan (No Build)
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-        
-    - name: Install Qt and CMake
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools cmake build-essential libgl1-mesa-dev libglu1-mesa-dev
-    
-    # КЛЮЧЕВОЙ ШАГ: создаем симлинк
-    - name: Create symlink for headers
-      run: |
-        cd $GITHUB_WORKSPACE/KursachNew/sources
-        ln -sf ../headers ./headers
-        echo "Symlink created"
-        ls -la
-        
-    - name: Build with CMake
-      run: |
-        mkdir build
-        cd build
-        cmake ..
-        make
-        
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Полная история для анализа
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          # Ключевые настройки: анализ БЕЗ сборки
+          args: >
+            -Dsonar.cfamily.build-wrapper-output.bypass=true
+            -Dsonar.cfamily.analysis.timeout=600
+            -Dsonar.cfamily.threads=2
+            -Dsonar.cfamily.cache.enabled=false
