@@ -7,23 +7,25 @@ on:
 
 jobs:
   analyze:
-    name: SonarCloud Scan (No Build)
+    name: SonarCloud Scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Полная история для анализа
+          fetch-depth: 0
 
+      # Просто анализ, без сборки
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          # Ключевые настройки: анализ БЕЗ сборки
+          projectBaseDir: .
           args: >
+            -Dsonar.projectKey=Volkovich81_cinema-system
+            -Dsonar.organization=volkovich81
+            -Dsonar.sources=.
+            -Dsonar.exclusions=**/x64/**,**/.vs/**,**/*.vcxproj*,build/**
             -Dsonar.cfamily.build-wrapper-output.bypass=true
-            -Dsonar.cfamily.analysis.timeout=600
-            -Dsonar.cfamily.threads=2
-            -Dsonar.cfamily.cache.enabled=false
