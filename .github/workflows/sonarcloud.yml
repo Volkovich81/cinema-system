@@ -15,7 +15,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Просто анализ, без сборки
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
