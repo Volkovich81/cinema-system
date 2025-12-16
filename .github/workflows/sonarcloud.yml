@@ -17,6 +17,14 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools cmake build-essential libgl1-mesa-dev libglu1-mesa-dev
+    
+    # КЛЮЧЕВОЙ ШАГ: создаем симлинк
+    - name: Create symlink for headers
+      run: |
+        cd $GITHUB_WORKSPACE/KursachNew/sources
+        ln -sf ../headers ./headers
+        echo "Symlink created"
+        ls -la
         
     - name: Build with CMake
       run: |
