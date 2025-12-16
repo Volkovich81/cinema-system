@@ -27,4 +27,5 @@ jobs:
             -Dsonar.organization=volkovich81
             -Dsonar.sources=.
             -Dsonar.exclusions=**/x64/**,**/.vs/**,**/*.vcxproj*,build/**
-            -Dsonar.cfamily.build-wrapper-output.bypass=true
+            -Dsonar.cpp.file.suffixes=-
+            -Dsonar.c.file.suffixes=-
